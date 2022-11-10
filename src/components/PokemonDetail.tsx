@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { PokemonDetail } from "./PokemonCollection";
 
 interface Props {
@@ -6,7 +6,12 @@ interface Props {
 }
 const PokemonDetails: React.FC<Props> = (props) => {
   const { currentPokemon } = props;
-                                      // console.log(currentPokemon.abilities?.map(ab => ab.name)); 
+  useEffect(() => {
+    if (currentPokemon.abilities) {
+      console.log(currentPokemon.abilities);
+    }
+  }, []);
+  // console.log(currentPokemon.abilities?.map(ab => ab.name));
   return (
     <div>
       <div className="pokemon-name">{currentPokemon.name}</div>
@@ -17,9 +22,12 @@ const PokemonDetails: React.FC<Props> = (props) => {
       />
       <div className="details">
         <div className="detail">
-          {
-            // currentPokemon.abilities.map(ab => ab.ability)
-          }
+          {currentPokemon.abilities &&
+            currentPokemon.abilities.map((ab, i) => {
+              return(
+                <div key={i}>{ab.ability.name}</div>
+              )
+            })}
         </div>
       </div>
     </div>
