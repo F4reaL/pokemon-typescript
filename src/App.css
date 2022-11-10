@@ -39,8 +39,9 @@ h2{
 
 }
 .pokemon{
-    border : 1px solid rgb(43, 236, 43);
+    /* border : 1px solid rgb(43, 236, 43); */
     border-radius: 5px;
+    background-color: rgb(32, 21, 95);
 }
 .pokemon-name{
     text-align: center;
@@ -50,4 +51,16 @@ h2{
 .modal-content{
     background-color: rgb(44, 33, 73);
     color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.modal-content .pokemon-name{
+    font-size: 16px;
+    text-transform: uppercase;
+}
+.modal-content .pokemon-img{
+    margin: 0 auto;
+    transform: scale(1.2);
 }
