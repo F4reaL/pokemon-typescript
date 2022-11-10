@@ -3,6 +3,8 @@ import axios from "axios";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import PokemonDetails from "./PokemonDetail";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 interface Pokemons {
   name: string;
@@ -87,9 +89,10 @@ const PokemonCollection: React.FC = () => {
             key={pokemon.id}
             onClick={() => handleShow(pokemon.id)}
           >
-            <img
+            <LazyLoadImage
               src={pokemon.sprites.front_default}
               alt=""
+              effect="blur"
               className="pokemon-img"
             />
             <div className="pokemon-name">{pokemon.name}</div>
