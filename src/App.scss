@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+@import 'variables';
+
+body {
+  background-color: rgb(18, 11, 34);
+  font-family: "Montserrat", sans-serif;
+}
+h2 {
+  font-weight: 600;
+  font-style: italic;
+  text-align: center;
+  margin: 20px 0 30px;
+  color: white;
+}
+.btn-loadmore button {
+  outline: none;
+  border: none;
+  color: white;
+  background-color: #916ec9;
+  padding: 4px 10px;
+}
+.btn-loadmore {
+  text-align: center;
+  width: 100%;
+}
+
+.pokemon-collection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 20px;
+  color: white;
+}
+.pokemon {
+  /* border : 1px solid rgb(43, 236, 43); */
+  border-radius: 5px;
+  background-color: rgb(32, 21, 95);
+}
+.pokemon-name {
+  text-align: center;
+  font-size: 12px;
+}
+
+.modal-content {
+  background-color: rgb(44, 33, 73);
+  color: white;
+}
+.modal-content .pokemon-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal-content .pokemon-name {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.modal-content .pokemon-img {
+  margin: 0 auto;
+  /* transform: scale(1.2); */
+}
+
+.details {
+  width: 100%;
+}
+@media (min-width: 992px) {
+  .details {
+    padding: 10px 20px;
+  }
+}
+.detail.abilities span {
+  margin: 0 5px;
+}
+
+.detail {
+  font-weight: bolder;
+  text-transform: uppercase;
+  &.abilities {
+    text-transform: none;
+    font-weight: 400;
+  }
+  &.hp {
+    color: $hp-color;
+    .detail-gauge {
+      background-color: $hp-color;
+    }
+  }
+  &.attack {
+    color: $attack-color;
+    .detail-gauge {
+      background-color: $attack-color;
+    }
+  }
+  &.defense {
+    color: $defense-color;
+    .detail-gauge {
+      background-color: $defense-color;
+    }
+  }
+  &.special-attack {
+    color: $special-attack-color;
+    .detail-gauge {
+      background-color: $special-attack-color;
+    }
+  }
+  &.special-defense {
+    color: $special-defense-color;
+    .detail-gauge {
+      background-color: $special-defense-color;
+    }
+  }
+  &.speed{
+    color: $speed-color;
+    .detail-gauge {
+      background-color: $speed-color;
+    }
+  }
+
+  .detail-gauge {
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    border: 1px solid white;
+    margin-bottom: 4px;
+  }
+}

@@ -3,8 +3,8 @@ import axios from "axios";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import PokemonDetails from "./PokemonDetail";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 interface Pokemons {
   name: string;
@@ -20,12 +20,16 @@ interface Pokemon {
 }
 export interface PokemonDetail extends Pokemon {
   abilities?: {
-    ability:string;
-    name:string;
+    ability: {
+      name: string;
+    };
   }[];
-  stats?:{
-    name:string;
-  }[]
+  stats?: {
+    base_stat: number;
+    stat:{
+      name: string
+    }
+  }[];
 }
 
 const LIMIT: number = 20;
@@ -34,22 +38,20 @@ const PokemonCollection: React.FC = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [nextUrl, setNextUrl] = useState<string>("");
   const [currentPokemon, setCurrentPokemon] = useState<PokemonDetail>({
-    id:0,
-    name:"",
+    id: 0,
+    name: "",
     sprites: {
-      front_default: ''
+      front_default: "",
     },
   });
 
   //Modal state
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
-  const handleShow =  (id: number) => {
-     pokemons.forEach(p =>{
-      if(p.id === id)
-      setCurrentPokemon(p);
-
-    })
+  const handleShow = (id: number) => {
+    pokemons.forEach((p) => {
+      if (p.id === id) setCurrentPokemon(p);
+    });
     setShow(true);
   };
 
@@ -105,9 +107,7 @@ const PokemonCollection: React.FC = () => {
       </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Body>
-          <PokemonDetails
-            currentPokemon={currentPokemon}
-          />
+          <PokemonDetails currentPokemon={currentPokemon} />
         </Modal.Body>
       </Modal>
     </div>
