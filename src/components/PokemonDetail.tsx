@@ -6,7 +6,7 @@ interface Props {
 }
 const PokemonDetails: React.FC<Props> = (props) => {
   const { currentPokemon } = props;
-                                      // console.log(currentPokemon.abilities?.map(ab => ab.name)); 
+                                      console.log(currentPokemon.abilities?[0].name); 
   return (
     <div>
       <div className="pokemon-name">{currentPokemon.name}</div>
